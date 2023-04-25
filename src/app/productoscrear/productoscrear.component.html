@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md" style="padding: 15% 30% 0% 30%;">
+        <h3 class="text-center">Formulario de productos</h3>
+        <form action="" class="mt-4">
+            <div class="mb-3">
+                <label for="nombre" class="form-label" style="font-weight: 600;">Nombre</label>
+                <input type="text" class="form-control" id="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="referencia" class="form-label" style="font-weight: 600;">Referencia</label>
+                <input type="text" class="form-control" id="referencia">
+            </div>
+            <div class="mb-3">
+                <label for="categoria" class="form-label" style="font-weight: 600;">Categoria</label>
+                <input type="text" class="form-control" id="categoria">
+            </div>
+            <div class="mb-3">
+                <label for="cantidad" class="form-label" style="font-weight: 600;">Cantidad</label>
+                <input type="text" class="form-control" id="cantidad">
+            </div>
+            <div class="mb-3">
+                <label for="foto" class="form-label" style="font-weight: 600;">Foto</label>
+                <input type="file" class="form-control" id="foto">
+            </div>
+            <div>
+                <div class="row mt-4" style="justify-content: center; display: flex;">
+                    <button class="btn" style="width: 50%; background-color: #0085FC; color:white; font-weight: 600;"  [routerLink]="['/productos']">Guardar</button>
+                </div>            
+            </div>
+        </form>
+    </div>
+</div>

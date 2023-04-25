@@ -1,0 +1,55 @@
+<div class="row mt-2" style="background-color: #CCE7FE;">
+    <div class="col-md m-3">
+        <span style="color: #0088CE; font-weight: 600;">Ecommerce </span> &nbsp;&nbsp;
+        <button class="btn" style="border-radius: 15px; background-color: white; color: black;font-weight: 600;" >Jhon Alexander </button>
+    </div>
+    <div class="col-md m-3"></div>
+    <div class="col-md m-3" style="justify-content: end; align-items: end; display: flex;">
+        <button class="btn btn-outline-primary"  [routerLink]="['/login']">Ingresar</button>
+    </div>
+</div>
+
+
+<div class="row" style="padding:0% 10% 0% 10%">
+    <div class="col-md" style="margin-top:7%">
+        <h5>Producto 1</h5>
+        <p>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    <div class="col-md" style="margin-top:5%">
+        <img src="../../assets/img/600x400_Productos.jpg" class="img-fluid rounded-start" alt="..." width="60%">
+    </div>
+</div>
+
+<div class="row" style="padding:5% 10% 0% 10%">
+    <div class="col-md" style="justify-content: center; align-items: center; display: flex;">
+        <button class="btn" style="background-color: #33A64C; color: white; font-weight: 600; width: 20%;" data-bs-toggle="modal" data-bs-target="#exampleModal" >Comprar</button> &nbsp; &nbsp;
+        <button class="btn" style="background-color: #DB2843; color: white; font-weight: 600; width: 20%;">Eliminar</button>
+    </div>   
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center mt-2">
+                ¿Está seguro de <br> realizar la compra?
+            </div>
+            <div style="justify-content: center; align-items: center; display: flex; margin-bottom: 4%; margin-top: 3%;">
+                <button type="button" class="btn" style="background-color: #33A64C;color:white" data-bs-toggle="modal" data-bs-target="#exampleModal2">Confirmar</button> &nbsp;&nbsp;
+                <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #DB2843;color:white">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center mt-2">
+                Gracias por su compra
+            </div>
+            <div style="justify-content: center; align-items: center; display: flex; margin-bottom: 4%; margin-top: 3%;">
+                <button type="button" class="btn" style="background-color: #33A64C;color:white" data-bs-dismiss="modal">Aceptar</button> &nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+</div>

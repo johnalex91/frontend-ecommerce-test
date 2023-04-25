@@ -1,0 +1,92 @@
+<div class="row mt-2" style="background-color: #CCE7FE;">
+    <div class="col-md m-3">
+        <span style="color: #0088CE; font-weight: 600;">Ecommerce </span> &nbsp;&nbsp;
+        <button class="btn" style="border-radius: 15px; background-color: white; color: black;font-weight: 600;" >Jhon Alexander </button>
+    </div>
+    <div class="col-md">
+       
+    </div>
+    <div class="col-md m-3"  style="justify-content: end; align-items: end; display: flex;">
+        <button class="btn" style="background-color: #33A64C;border-radius: 15px; color: white; font-weight: 600;">2</button> &nbsp;&nbsp;
+        <button class="btn" style="background-color: #DB2843;border-radius: 15px; color: white; font-weight: 600;">Mis compras</button> &nbsp;&nbsp;
+        <button class="btn btn-outline-primary " [routerLink]="['/login']">Ingresar</button>
+    </div>
+</div>
+
+
+<div class="row" style="margin-top: 7%;">
+    <div class="col-md">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4"style="justify-content: center; align-items: center; display: flex;">
+            <img src="../../assets/img/600x400_Productos.jpg" class="img-fluid" alt="..." >
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title">Producto 1</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <button class="btn" style="background-color: #0085FC; color:white" [routerLink]="['/compras']">Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4"style="justify-content: center; align-items: center; display: flex;">
+            <img src="../../assets/img/600x400_Productos.jpg" class="img-fluid" alt="..." >
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title">Producto 1</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <button class="btn" style="background-color: #0085FC; color:white" [routerLink]="['/compras']">Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4"style="justify-content: center; align-items: center; display: flex;">
+            <img src="../../assets/img/600x400_Productos.jpg" class="img-fluid" alt="..." >
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title">Producto 1</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <button class="btn" style="background-color: #0085FC; color:white" [routerLink]="['/compras']">Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="row" >
+  <!-- Button trigger modal -->
+<button style="width: 20%;"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ Modal de validación
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="text-justify: center">INFORMACIÓN</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Debe ingresar con usuario y contraseña para realizar la compra
+      </div>
+      <div style="justify-content: center; align-items: center; display: flex; margin-bottom: 4%;">
+        <button type="button" class="btn" style="background-color: #0DCAF0; color: white;font-weight: 600;" [routerLink]="['/login']">Ingresar</button> &nbsp; &nbsp;
+        <button type="button" class="btn" style="background-color: #33A64C; color: white;font-weight: 600;" [routerLink]="['/cuenta']">Crear cuenta</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
