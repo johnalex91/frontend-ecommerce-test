@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import * as $ from 'jquery';
-// declare var $;
+
+declare var $: any;
+
 
 @Component({
   selector: 'app-compra',
@@ -8,14 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./compra.component.css']
 })
 export class CompraComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  modalopen(modal:any){
-    // console.log('en l afuntion');
-    // $('#exampleModal').modal('show');
+  modalopen(){
+    $('#exampleModal').modal('show');
+  }
+
+  modalclose(){
+    $('#exampleModal').modal('hide');
+    $('#exampleModal2').modal('show');
   }
 }

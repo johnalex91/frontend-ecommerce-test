@@ -1,30 +1,40 @@
 <div class="row">
     <div class="col-md" style="padding: 15% 30% 0% 30%;">
         <h3 class="text-center">Formulario de productos</h3>
-        <form action="" class="mt-4">
+        <form action="" class="mt-4"  [formGroup]="form" novalidate>
             <div class="mb-3">
-                <label for="nombre" class="form-label" style="font-weight: 600;">Nombre</label>
-                <input type="text" class="form-control" id="nombre">
+                <label for="nombre" class="form-label" style="font-weight: 600;"><span style="color: red" *ngIf="in.nombre == ''">* </span>Nombre</label>
+                <!-- <label style="color: red" *ngIf="form.get('nombre').hasError('required') && (form.get('nombre').dirty || form.get('nombre').touched)">Requerido</label> -->
+                <label style="color: red" *ngIf='err.nombre != null && err.nombre != ""' >{{err.nombre}}</label> 
+                <input type="text" class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="in.nombre">
             </div>
             <div class="mb-3">
-                <label for="referencia" class="form-label" style="font-weight: 600;">Referencia</label>
-                <input type="text" class="form-control" id="referencia">
+                <label for="referencia" class="form-label" style="font-weight: 600;"> <span style="color: red" *ngIf="in.referencia == ''">* </span>Referencia</label>
+                <!-- <label style="color: red" *ngIf="form.get('referencia').hasError('required') && (form.get('referencia').dirty || form.get('referencia').touched)">Requerido</label> -->
+                <label style="color: red" *ngIf='err.referencia != null && err.referencia != ""' >{{err.referencia}}</label> 
+                <input type="text" class="form-control" id="referencia" formControlName="referencia" [(ngModel)]="in.referencia">
             </div>
             <div class="mb-3">
-                <label for="categoria" class="form-label" style="font-weight: 600;">Categoria</label>
-                <input type="text" class="form-control" id="categoria">
+                <label for="categoria" class="form-label" style="font-weight: 600;"> <span style="color: red" *ngIf="in.categoria == ''">* </span>Categoria</label>
+                <!-- <label style="color: red" *ngIf="form.get('categoria').hasError('required') && (form.get('categoria').dirty || form.get('categoria').touched)">Requerido</label> -->
+                <label style="color: red" *ngIf='err.categoria != null && err.categoria != ""' >{{err.categoria}}</label> 
+                <input type="text" class="form-control" id="categoria" formControlName="categoria" [(ngModel)]="in.categoria">
             </div>
             <div class="mb-3">
-                <label for="cantidad" class="form-label" style="font-weight: 600;">Cantidad</label>
-                <input type="text" class="form-control" id="cantidad">
+                <label for="cantidad" class="form-label" style="font-weight: 600;"> <span style="color: red" *ngIf="in.cantidad == ''">* </span>Cantidad</label>
+                <!-- <label style="color: red" *ngIf="form.get('cantidad').hasError('required') && (form.get('cantidad').dirty || form.get('cantidad').touched)">Requerido</label> -->
+                <label style="color: red" *ngIf='err.cantidad != null && err.cantidad != ""' >{{err.cantidad}}</label> 
+                <input type="text" class="form-control" id="cantidad" formControlName="cantidad" [(ngModel)]="in.cantidad" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode ==75 || event.charCode ==107)">
             </div>
             <div class="mb-3">
-                <label for="foto" class="form-label" style="font-weight: 600;">Foto</label>
-                <input type="file" class="form-control" id="foto">
+                <label for="foto" class="form-label" style="font-weight: 600;"><span style="color: red" *ngIf="in.foto == ''">* </span>Foto</label>
+                  <!-- <label style="color: red" *ngIf="form.get('foto').hasError('required') && (form.get('foto').dirty || form.get('foto').touched)">Requerido</label> -->
+                  <label style="color: red" *ngIf='err.foto != null && err.foto != ""' >{{err.foto}}</label> 
+                <input type="file" class="form-control" id="foto" formControlName="foto" [(ngModel)]="in.foto">
             </div>
             <div>
                 <div class="row mt-4" style="justify-content: center; display: flex;">
-                    <button class="btn" style="width: 50%; background-color: #0085FC; color:white; font-weight: 600;"  [routerLink]="['/productos']">Guardar</button>
+                    <button [disabled]="form.invalid" class="btn" style="width: 50%; background-color: #0085FC; color:white; font-weight: 600;"  [routerLink]="['/productos']">Guardar</button>
                 </div>            
             </div>
         </form>

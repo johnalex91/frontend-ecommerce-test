@@ -22,7 +22,7 @@
 
 <div class="row" style="padding:5% 10% 0% 10%">
     <div class="col-md" style="justify-content: center; align-items: center; display: flex;">
-        <button class="btn" style="background-color: #33A64C; color: white; font-weight: 600; width: 20%;" data-bs-toggle="modal" data-bs-target="#exampleModal" >Comprar</button> &nbsp; &nbsp;
+        <button class="btn" style="background-color: #33A64C; color: white; font-weight: 600; width: 20%;" (click)="modalopen()" >Comprar</button> &nbsp; &nbsp;
         <button class="btn" style="background-color: #DB2843; color: white; font-weight: 600; width: 20%;">Eliminar</button>
     </div>   
 </div>
@@ -34,7 +34,7 @@
                 ¿Está seguro de <br> realizar la compra?
             </div>
             <div style="justify-content: center; align-items: center; display: flex; margin-bottom: 4%; margin-top: 3%;">
-                <button type="button" class="btn" style="background-color: #33A64C;color:white" data-bs-toggle="modal" data-bs-target="#exampleModal2">Confirmar</button> &nbsp;&nbsp;
+                <button type="button" class="btn" style="background-color: #33A64C;color:white" (click)="modalclose()">Confirmar</button> &nbsp;&nbsp;
                 <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #DB2843;color:white">Cancelar</button>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 Gracias por su compra
             </div>
             <div style="justify-content: center; align-items: center; display: flex; margin-bottom: 4%; margin-top: 3%;">
-                <button type="button" class="btn" style="background-color: #33A64C;color:white" data-bs-dismiss="modal">Aceptar</button> &nbsp;&nbsp;
+                <button type="button" class="btn" style="background-color: #33A64C;color:white" data-bs-dismiss="modal" [routerLink]="['/inicio']">Aceptar</button> &nbsp;&nbsp;
             </div>
         </div>
     </div>

@@ -83,8 +83,8 @@
         Debe ingresar con usuario y contraseña para realizar la compra
       </div>
       <div style="justify-content: center; align-items: center; display: flex; margin-bottom: 4%;">
-        <button type="button" class="btn" style="background-color: #0DCAF0; color: white;font-weight: 600;" [routerLink]="['/login']">Ingresar</button> &nbsp; &nbsp;
-        <button type="button" class="btn" style="background-color: #33A64C; color: white;font-weight: 600;" [routerLink]="['/cuenta']">Crear cuenta</button>
+        <button type="button" class="btn" style="background-color: #0DCAF0; color: white;font-weight: 600;" [routerLink]="['/login']" (click)="closemodal()">Ingresar</button> &nbsp; &nbsp;
+        <button type="button" class="btn" style="background-color: #33A64C; color: white;font-weight: 600;" [routerLink]="['/cuenta']" (click)="closemodal()">Crear cuenta</button>
       </div>
     </div>
   </div>
