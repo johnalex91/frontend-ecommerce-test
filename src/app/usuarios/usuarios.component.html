@@ -8,6 +8,7 @@
         <tr>
           <th scope="col">Usuario</th>
           <th scope="col">Email</th>
+          <th scope="col">Activo</th>
           <th scope="col">Acciones</th>
         </tr>
       </thead>
@@ -15,7 +16,9 @@
         <tr *ngFor="let l of list; let i = index">
           <td>{{l.username}}</td>
           <td>{{l.email}}</td>
-          <td><button class="btn" style="background-color: #DB2843; color:white; font-weight: 600; width: 30%;" (click)="deleteUser(l,i)">Eliminar</button></td>            
+          <td><span *ngIf="l.status==1">SI</span><span *ngIf="l.status==0">NO</span></td>
+          <td><button class="btn btn-danger"  (click)="deleteUser(l,i)">Eliminar</button></td>            
+          <td><button class="btn btn-warning"  (click)="statusUser(l,i)">Desactivar</button></td>            
         </tr>
       </tbody>
     </table>

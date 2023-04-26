@@ -57,6 +57,30 @@ export class UsuariosComponent implements OnInit {
     })
   }
 
-
+  statusUser(data:any,index:number){
+    const params = new HttpParams()
+    let status = 0;
+    if(data.status == null || data.status == 0){
+      status = 1;
+    }
+    Swal.fire({
+      title: 'En verdad desea desactivar el registro?',
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Desactivar',
+      cancelButtonColor:"green",
+      confirmButtonColor:"red"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._service
+        .getPostJson(this.url+'status/'+data.id+'/'+status, params).subscribe((data:any) => {
+          Swal.fire('Usuario Desativado', '', 'success')
+            this.getUsuario();
+        });
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+  }
 
 }

@@ -17,7 +17,10 @@ export class User{
 	constructor(
 	public id:number,
     public username:string,
-    public email:string
+    public email:string,
+    public password:string,
+    public status:number,
+    public role:string
 	){}
 }
 
@@ -46,7 +49,7 @@ export class usuario{
 export class Models{
     constructor(){}
 	Product(){return new Product(0, "", "", "", "","");}
-    User(){return new User(0,"","");};
+    User(){return new User(0,"","","",0,"");};
 
     Producto(){return new producto(0, "", "", "", "", "");}
     Usuario(){return new usuario(0, "", "", "", "");}

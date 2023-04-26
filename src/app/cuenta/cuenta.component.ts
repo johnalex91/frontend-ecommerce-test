@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Models} from './../models';
-import {Router} from '@angular/router';
+import {Service} from './../service';
+import Swal from 'sweetalert2'
+import { HttpParams } from '@angular/common/http'
+import {Router,ActivatedRoute } from "@angular/router"
 
 declare var $: any;
 
@@ -9,18 +12,19 @@ declare var $: any;
   selector: 'app-cuenta',
   templateUrl: './cuenta.component.html',
   styleUrls: ['./cuenta.component.css'],
-  providers: [Models]
+  providers: [Models,Service],  
 })
 export class CuentaComponent{
   in;
   err;
   public form: FormGroup;
-  constructor(public fb: FormBuilder, private models: Models, private _router:Router) {
-    this.in = this.models.Usuario();
-    this.err = this.models.Usuario();
+  confirmpassword="";
+  url="api/user";
+  constructor(private route: ActivatedRoute,public fb: FormBuilder, private models: Models,private _service: Service,private _router: Router) {
+    this.in = this.models.User();
+    this.err = this.models.User();
     this.form = this.fb.group({
-      'id':[''],
-      'usuario':['',[Validators.required]],
+      'username':['',[Validators.required]],
       'password':['',[Validators.required]],
       'email':['',[Validators.required]],
       'confirmpassword':['',[Validators.required]]
@@ -36,7 +40,7 @@ export class CuentaComponent{
 
   verifypassword(){
     var button = (document.getElementById('buttonsubmit')as HTMLButtonElement)
-    if(this.in.password !=  this.in.confirmpassword){     
+    if(this.in.password !=  this.confirmpassword){     
       button.disabled = true;
     }else{
       if(this.form.invalid){
@@ -68,8 +72,18 @@ export class CuentaComponent{
   }
 
   submit(){
-    localStorage.setItem("user","jhon alexander");
-    localStorage.setItem("token","123456");
-    this._router.navigate(["/"]);     
+    this._service
+    .getPostJson(this.url+"/create", this.in).subscribe((data:any) => {
+        this._router.navigate(["/login"]);     
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Registro Exitoso',
+            showConfirmButton: false,
+            timer: 1500
+          })
+  
+    });
   }
+
 }
