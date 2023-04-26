@@ -74,15 +74,25 @@ export class CuentaComponent{
   submit(){
     this._service
     .getPostJson(this.url+"/create", this.in).subscribe((data:any) => {
-        this._router.navigate(["/login"]);     
-        Swal.fire({
+        console.log(data);
+        if(data.data == "NONE"){
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'El usuario y/o email ya se encuentra registrados',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }else{
+          Swal.fire({
             position: 'top-end',
             icon: 'success',
             title: 'Registro Exitoso',
             showConfirmButton: false,
             timer: 1500
           })
-  
+          this._router.navigate(["/login"]);     
+        }
     });
   }
 

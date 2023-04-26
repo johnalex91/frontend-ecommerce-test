@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Models} from './../models';
-import {Service} from './service';
+import {Service} from './../service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,9 @@ export class LoginComponent{
   in;
   err;
   public form: FormGroup;
+  //url="login";
+  url="auth/login";
+
   constructor(private _service: Service,public fb: FormBuilder, private models: Models,private _router: Router) {
     this.in = this.models.Usuario();
     this.err = this.models.Usuario();
@@ -33,15 +37,32 @@ export class LoginComponent{
   }
 
   submit(){
-    if(this.in.usuario=="admin"){
-      localStorage.setItem("user","admin");
-      localStorage.setItem("token","123456");
-      this._router.navigate(["/admin"]);   
-    }else{
-      localStorage.setItem("user","jhon alexander");
-      localStorage.setItem("token","123456");
-      this._router.navigate(["/"]);   
-    }
+
+    this._service
+    .getPostJson(this.url,{username:this.in.usuario,password:this.in.password} ).subscribe((data:any) => {
+
+      if(data.success=="ERROR"){
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Ingreso Incorrectos',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }else{
+        if(data.role=="ADMIN"){
+          localStorage.setItem("user","admin");
+          localStorage.setItem("token","123456");
+          this._router.navigate(["/admin"]);  
+        }else{
+          localStorage.setItem("user",this.in.usuario);
+          localStorage.setItem("token","123456");
+          this._router.navigate(["/"]);   
+        }
+      }
+
+    });
+
   }
 
 
