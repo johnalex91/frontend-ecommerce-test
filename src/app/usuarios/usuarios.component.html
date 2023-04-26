@@ -1,45 +1,24 @@
-<div class="row mt-2" style="background-color: #CCE7FE;">
-  <div class="col-md m-3">
-      <span style="color: #0088CE; font-weight: 600;">Ecommerce </span> &nbsp;&nbsp;
-      <span style="color: #0088CE; font-weight: 600;">Admin</span>  &nbsp;&nbsp;
-      <button class="btn" style="border-radius: 15px; background-color: white; color: black;font-weight: 600;" >Jhon Alexander </button>
-  </div>
-  <div class="col-md m-3">
-      <button class="btn" style="border-radius: 15px; background-color: white; color: black;font-weight: 600; width: 40%;" [routerLink]="['/usuarios']">Usuarios</button> &nbsp;&nbsp;
-      <button class="btn" style="border-radius: 15px; background-color: white; color: black;font-weight: 600;  width: 40%;" [routerLink]="['/productos']">Productos</button>
-  </div>
-  <div class="col-md m-3" style="justify-content: end; align-items: end; display: flex;">
-      <button class="btn btn-outline-primary"  [routerLink]="['/login']">Logout</button>
-  </div>
-</div>
 
 <div class="row mt-5"></div>
 
-<div class="row mt-3">
+<div class="row justify-content-center">
+  <div class="col-md-10">
     <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Usuario</th>
-            <th scope="col">Email</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mark</td>
-            <td>marck@gmail.com</td>
-            <td><button class="btn" style="background-color: #DB2843; color:white; font-weight: 600; width: 30%;">Eliminar</button></td>            
-          </tr>
-          <tr>
-            <td>Otto</td>
-            <td>otto@gmail.com</td>
-            <td><button class="btn" style="background-color: #DB2843; color:white; font-weight: 600; width: 30%;">Eliminar</button></td>
-          </tr>
-          <tr>
-            <td>Jhon</td>
-            <td>jhon@gmail.com</td>
-            <td><button class="btn" style="background-color: #DB2843; color:white; font-weight: 600; width: 30%;">Eliminar</button></td>
-          </tr>
-        </tbody>
-      </table>
+      <thead>
+        <tr>
+          <th scope="col">Usuario</th>
+          <th scope="col">Email</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let l of list; let i = index">
+          <td>{{l.username}}</td>
+          <td>{{l.email}}</td>
+          <td><button class="btn" style="background-color: #DB2843; color:white; font-weight: 600; width: 30%;" (click)="deleteUser(l,i)">Eliminar</button></td>            
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+

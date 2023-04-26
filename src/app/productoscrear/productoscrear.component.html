@@ -1,40 +1,44 @@
-<div class="row">
-    <div class="col-md" style="padding: 15% 30% 0% 30%;">
+<div class="row justify-content-center">
+    <div class="col-md-6" [ngStyle]="{marginTop:'20px'}"  *ngIf="!loading">
         <h3 class="text-center">Formulario de productos</h3>
         <form action="" class="mt-4"  [formGroup]="form" novalidate>
             <div class="mb-3">
-                <label for="nombre" class="form-label" style="font-weight: 600;"><span style="color: red" *ngIf="in.nombre == ''">* </span>Nombre</label>
-                <!-- <label style="color: red" *ngIf="form.get('nombre').hasError('required') && (form.get('nombre').dirty || form.get('nombre').touched)">Requerido</label> -->
-                <label style="color: red" *ngIf='err.nombre != null && err.nombre != ""' >{{err.nombre}}</label> 
-                <input type="text" class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="in.nombre">
+                <label for="name" class="form-label" style="font-weight: 600;"><span style="color: red" *ngIf="in.name == ''">* </span>Producto</label>
+                <!-- <label style="color: red" *ngIf="form.get('name').hasError('required') && (form.get('name').dirty || form.get('name').touched)">Requerido</label> -->
+                <label style="color: red" *ngIf='err.name != null && err.name != ""' >{{err.name}}</label> 
+                <input type="text" class="form-control" id="name" formControlName="name" [(ngModel)]="in.name">
             </div>
             <div class="mb-3">
-                <label for="referencia" class="form-label" style="font-weight: 600;"> <span style="color: red" *ngIf="in.referencia == ''">* </span>Referencia</label>
-                <!-- <label style="color: red" *ngIf="form.get('referencia').hasError('required') && (form.get('referencia').dirty || form.get('referencia').touched)">Requerido</label> -->
-                <label style="color: red" *ngIf='err.referencia != null && err.referencia != ""' >{{err.referencia}}</label> 
-                <input type="text" class="form-control" id="referencia" formControlName="referencia" [(ngModel)]="in.referencia">
+                <label for="reference" class="form-label" style="font-weight: 600;"> <span style="color: red" *ngIf="in.reference == ''">* </span>Referencia</label>
+                <!-- <label style="color: red" *ngIf="form.get('reference').hasError('required') && (form.get('reference').dirty || form.get('reference').touched)">Requerido</label> -->
+                <label style="color: red" *ngIf='err.reference != null && err.reference != ""' >{{err.reference}}</label> 
+                <input type="text" class="form-control" id="reference" formControlName="reference" [(ngModel)]="in.reference">
             </div>
             <div class="mb-3">
-                <label for="categoria" class="form-label" style="font-weight: 600;"> <span style="color: red" *ngIf="in.categoria == ''">* </span>Categoria</label>
-                <!-- <label style="color: red" *ngIf="form.get('categoria').hasError('required') && (form.get('categoria').dirty || form.get('categoria').touched)">Requerido</label> -->
-                <label style="color: red" *ngIf='err.categoria != null && err.categoria != ""' >{{err.categoria}}</label> 
-                <input type="text" class="form-control" id="categoria" formControlName="categoria" [(ngModel)]="in.categoria">
+                <label for="category" class="form-label" style="font-weight: 600;"> <span style="color: red" *ngIf="in.category == ''">* </span>category</label>
+                <!-- <label style="color: red" *ngIf="form.get('category').hasError('required') && (form.get('category').dirty || form.get('category').touched)">Requerido</label> -->
+                <label style="color: red" *ngIf='err.category != null && err.category != ""' >{{err.category}}</label> 
+                <input type="text" class="form-control" id="category" formControlName="category" [(ngModel)]="in.category">
             </div>
             <div class="mb-3">
-                <label for="cantidad" class="form-label" style="font-weight: 600;"> <span style="color: red" *ngIf="in.cantidad == ''">* </span>Cantidad</label>
-                <!-- <label style="color: red" *ngIf="form.get('cantidad').hasError('required') && (form.get('cantidad').dirty || form.get('cantidad').touched)">Requerido</label> -->
-                <label style="color: red" *ngIf='err.cantidad != null && err.cantidad != ""' >{{err.cantidad}}</label> 
-                <input type="text" class="form-control" id="cantidad" formControlName="cantidad" [(ngModel)]="in.cantidad" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode ==75 || event.charCode ==107)">
+                <label for="quantity" class="form-label" style="font-weight: 600;"> <span style="color: red" *ngIf="in.quantity == ''">* </span>Cantidad</label>
+                <!-- <label style="color: red" *ngIf="form.get('quantity').hasError('required') && (form.get('quantity').dirty || form.get('quantity').touched)">Requerido</label> -->
+                <label style="color: red" *ngIf='err.quantity != null && err.quantity != ""' >{{err.quantity}}</label> 
+                <input type="text" class="form-control" id="quantity" formControlName="quantity" [(ngModel)]="in.quantity" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode ==75 || event.charCode ==107)">
             </div>
             <div class="mb-3">
-                <label for="foto" class="form-label" style="font-weight: 600;"><span style="color: red" *ngIf="in.foto == ''">* </span>Foto</label>
-                  <!-- <label style="color: red" *ngIf="form.get('foto').hasError('required') && (form.get('foto').dirty || form.get('foto').touched)">Requerido</label> -->
-                  <label style="color: red" *ngIf='err.foto != null && err.foto != ""' >{{err.foto}}</label> 
-                <input type="file" class="form-control" id="foto" formControlName="foto" [(ngModel)]="in.foto">
+                <img src="/assets/image.png" *ngIf="in.image==''" id="imagen-blob"  class="card-img-top img-fluid" alt="..." [ngStyle]="{width:'200px',height:'150px'}">
+                <img [src]="urlImage+'api/product/uploads/img/'+in.image" id="imagen-blob"  *ngIf="in.image!=''" class="card-img-top img-fluid" alt="..." [ngStyle]="{width:'200px',height:'150px'}" />    
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label" style="font-weight: 600;"><span style="color: red" *ngIf="in.image == ''">* </span>Foto</label>
+                  <!-- <label style="color: red" *ngIf="form.get('image').hasError('required') && (form.get('image').dirty || form.get('image').touched)">Requerido</label> -->
+                  <label style="color: red" *ngIf='err.image != null && err.image != ""' >{{err.image}}</label> 
+                <input accept="image/jpeg, image/png" type="file" id="file1" (change)='makeToFiles($event)' />
             </div>
             <div>
                 <div class="row mt-4" style="justify-content: center; display: flex;">
-                    <button [disabled]="form.invalid" class="btn" style="width: 50%; background-color: #0085FC; color:white; font-weight: 600;"  [routerLink]="['/productos']">Guardar</button>
+                    <button [disabled]="form.invalid" class="btn" style="width: 50%; background-color: #0085FC; color:white; font-weight: 600;"  (click)="submit()">Guardar</button>
                 </div>            
             </div>
         </form>

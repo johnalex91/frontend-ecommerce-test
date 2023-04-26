@@ -7,16 +7,29 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
 import { LoginComponent } from './login/login.component';
 import { ProductoscrearComponent } from './productoscrear/productoscrear.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
 
   {path: '', component: InicioComponent},
   {path: 'compras', component: CompraComponent},
   {path: 'cuenta', component: CuentaComponent},
-  {path: 'usuarios', component: UsuariosComponent},
-  {path: 'productos', component: ProductosComponent},
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      {
+        path: 'usuarios',
+        component: UsuariosComponent
+      }, 
+      {
+        path: 'productos',
+        component: ProductosComponent
+      }, 
+      {path: 'productoscrear/:id', component: ProductoscrearComponent}
+    ]
+  }, 
   {path: 'login', component: LoginComponent},
-  {path: 'productoscrear', component: ProductoscrearComponent}
 ];
 
 @NgModule({

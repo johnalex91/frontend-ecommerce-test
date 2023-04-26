@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ProductoscrearComponent } from './productoscrear/productoscrear.component';
 import * as $ from "jquery";
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,15 @@ import * as $ from "jquery";
     CompraComponent,
     UsuariosComponent,
     ProductosComponent,
-    ProductoscrearComponent
+    ProductoscrearComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

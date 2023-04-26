@@ -2,6 +2,24 @@ import {Injectable} from '@angular/core';
 declare var $ :any;
 declare var require: any;
 
+export class Product{
+	constructor(
+	public id:number,
+    public name:string,
+    public reference:string,
+    public quantity:string,
+    public image:string,
+    public category:string
+	){}
+}
+
+export class User{
+	constructor(
+	public id:number,
+    public username:string,
+    public email:string
+	){}
+}
 
 export class producto{
 	constructor(
@@ -27,6 +45,9 @@ export class usuario{
 @Injectable()
 export class Models{
     constructor(){}
-	Producto(){return new producto(0, "", "", "", "", "");}
+	Product(){return new Product(0, "", "", "", "","");}
+    User(){return new User(0,"","");};
+
+    Producto(){return new producto(0, "", "", "", "", "");}
     Usuario(){return new usuario(0, "", "", "", "");}
 }

@@ -15,7 +15,7 @@ export class CuentaComponent{
   in;
   err;
   public form: FormGroup;
-  constructor(public fb: FormBuilder, private models: Models, private router:Router) {
+  constructor(public fb: FormBuilder, private models: Models, private _router:Router) {
     this.in = this.models.Usuario();
     this.err = this.models.Usuario();
     this.form = this.fb.group({
@@ -28,6 +28,10 @@ export class CuentaComponent{
    }
 
   ngOnInit(): void {
+    if(localStorage.getItem("user")!=null && localStorage.getItem("token")!=null){
+      this._router.navigate(["/"]); 
+      //window.location.assign('/');
+    }    
   }
 
   verifypassword(){
@@ -59,7 +63,13 @@ export class CuentaComponent{
 
   redireccionar(){
     setTimeout(() => {
-      this.router.navigate(['/inicio']);
+      this._router.navigate(['/inicio']);
     }, 2000);
+  }
+
+  submit(){
+    localStorage.setItem("user","jhon alexander");
+    localStorage.setItem("token","123456");
+    this._router.navigate(["/"]);     
   }
 }
